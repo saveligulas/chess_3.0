@@ -1,5 +1,8 @@
 package gulas.saveli.model;
 
+import lombok.Data;
+
+@Data
 public class Piece implements PieceMovement {
     private Piece_Type type;
     private char color;
@@ -14,37 +17,5 @@ public class Piece implements PieceMovement {
     @Override
     public void removeFromBoard() {
 
-    }
-
-    public Piece_Type getType() {
-        return type;
-    }
-
-    public void setType(Piece_Type type) {
-        this.type = type;
-    }
-
-    public char getColor() {
-        return color;
-    }
-
-    public void setColor(char color) {
-        this.color = color;
-    }
-
-    public byte getColumn() {
-        return column;
-    }
-
-    public void setColumn(byte column) {
-        this.column = column;
-    }
-
-    public byte getRow() {
-        return row;
-    }
-
-    public void setRow(byte row) {
-        this.row = row;
     }
 }
