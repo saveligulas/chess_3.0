@@ -2,21 +2,24 @@ package gulas.saveli.model;
 
 import gulas.saveli.error.InvalidColorException;
 import gulas.saveli.error.InvalidCoordinateException;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Setter;
 
 @Data
 public class Piece implements PieceMovement {
     private Piece_Type type;
+    @Setter(AccessLevel.NONE)
     private char color;
     private byte column;
     private byte row;
 
-    public void setColor(char color) {
-        if(color == ALLOWED_COLORS[0] || color == ALLOWED_COLORS[1]) {
+    public void setColorToBlack() {
+        this.color = 'b';
+    }
 
-        } else {
-            throw new InvalidColorException();
-        }
+    public void setColorToWhite() {
+        this.color = 'w';
     }
 
     @Override
