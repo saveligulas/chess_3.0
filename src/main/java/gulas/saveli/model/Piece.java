@@ -10,6 +10,14 @@ public class Piece implements PieceMovement {
     private byte column;
     private byte row;
 
+    public void setColor(char color) {
+        if(color == ALLOWED_COLORS[0] || color == ALLOWED_COLORS[1]) {
+
+        } else {
+            throw new InvalidCoordinateException();
+        }
+    }
+
     @Override
     public void movePiece(byte x_coordinate, byte y_coordinate) {
         if(x_coordinate > 0 && x_coordinate <= MAX_COORDINATE_VALUE && y_coordinate > 0 && y_coordinate <= MAX_COORDINATE_VALUE) {
