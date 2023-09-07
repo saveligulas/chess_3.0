@@ -22,7 +22,7 @@ public class Piece implements PieceInterface {
     }
 
     protected void movePiece(byte x_coordinate, byte y_coordinate) {
-        if(x_coordinate > 0 && x_coordinate <= MAX_COORDINATE_VALUE && y_coordinate > 0 && y_coordinate <= MAX_COORDINATE_VALUE) {
+        if (x_coordinate > 0 && x_coordinate <= MAX_COORDINATE_VALUE && y_coordinate > 0 && y_coordinate <= MAX_COORDINATE_VALUE) {
             this.column = x_coordinate;
             this.row = y_coordinate;
         } else {
