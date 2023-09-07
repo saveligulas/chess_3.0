@@ -1,5 +1,6 @@
 package gulas.saveli.model;
 
+import gulas.saveli.error.InvalidColorException;
 import gulas.saveli.error.InvalidCoordinateException;
 import lombok.Data;
 
@@ -14,7 +15,7 @@ public class Piece implements PieceMovement {
         if(color == ALLOWED_COLORS[0] || color == ALLOWED_COLORS[1]) {
 
         } else {
-            throw new InvalidCoordinateException();
+            throw new InvalidColorException();
         }
     }
 
