@@ -4,7 +4,7 @@ import gulas.saveli.model.Piece;
 import gulas.saveli.model.Piece_Type;
 
 public class Pawn extends Piece {
-    public Pawn(boolean isWhite) {
+    public Pawn(boolean isWhite, byte positionColumn) {
         setType(Piece_Type.PAWN);
         if (isWhite) {
             setColorToWhite();
@@ -12,4 +12,6 @@ public class Pawn extends Piece {
             setColorToBlack();
         }
     }
+
+
 }
