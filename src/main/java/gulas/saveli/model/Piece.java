@@ -1,6 +1,6 @@
 package gulas.saveli.model;
 
-import gulas.saveli.error.InvalidCoordinateException;
+import gulas.saveli.error.CoordinateOutOfBoundsException;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
@@ -26,7 +26,7 @@ public class Piece implements PieceInterface {
             this.column = x_coordinate;
             this.row = y_coordinate;
         } else {
-            throw new InvalidCoordinateException();
+            throw new CoordinateOutOfBoundsException();
         }
     }
 
