@@ -9,8 +9,10 @@ public class Pawn extends Piece {
         setType(Piece_Type.PAWN);
         if (isWhite) {
             setColorToWhite();
+            setRow((byte) 1);
         } else {
             setColorToBlack();
+            setRow((byte) 6);
         }
 
         if (positionColumn >=0 && positionColumn <= MAX_COORDINATE_VALUE) {
