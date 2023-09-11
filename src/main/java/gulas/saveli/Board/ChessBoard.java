@@ -7,7 +7,8 @@ public class ChessBoard {
     private final Tile[] tiles;
 
     private boolean moveOrderIsWhite = true;
+
     public ChessBoard() {
-        this.tiles = new Tile[] {new Tile()};
+        this.tiles = Tile.getStandard64Tiles();
     }
 }
