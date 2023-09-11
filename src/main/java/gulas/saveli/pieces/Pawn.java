@@ -11,11 +11,10 @@ public class Pawn extends Piece {
 
     public Pawn(boolean isWhite, byte positionColumn) {
         setType(Piece_Type.PAWN);
+        setColorIsWhite(isWhite);
         if (isWhite) {
-            setColorToWhite();
             setRow((byte) 1);
         } else {
-            setColorToBlack();
             setRow((byte) 6);
         }
 
