@@ -8,10 +8,16 @@ import lombok.Setter;
 @Data
 public class Piece implements PieceInterface {
     private Piece_Type type;
-    @Setter(AccessLevel.NONE)
     private boolean colorIsWhite;
     private byte column;
     private byte row;
+
+    public Piece() {
+    }
+
+    public Piece(boolean colorIsWhite) {
+        setColorIsWhite(colorIsWhite);
+    }
 
     protected void movePiece(byte x_coordinate, byte y_coordinate) {
         if (x_coordinate > 0 && x_coordinate <= MAX_COORDINATE_VALUE && y_coordinate > 0 && y_coordinate <= MAX_COORDINATE_VALUE) {
