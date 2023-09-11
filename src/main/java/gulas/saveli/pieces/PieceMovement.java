@@ -9,7 +9,7 @@ import gulas.saveli.model.Piece_Type;
 
 public class PieceMovement implements PieceInterface {
 
-    public boolean pieceMovementWasSuccessful(ChessBoard board, byte x_coordinate_selection, byte y_coordinate_selection, byte x_coordinate_target, byte y_coordinate_target ) {
+    public ChessBoard returnUpdatedBoard(ChessBoard board, byte x_coordinate_selection, byte y_coordinate_selection, byte x_coordinate_target, byte y_coordinate_target ) {
         boolean playerIsWhite = board.isMoveOrderIsWhite();
 
         try {
@@ -17,9 +17,10 @@ public class PieceMovement implements PieceInterface {
             Piece_Type piece_type = getPieceTypeOfSelectedTile(board, x_coordinate_selection, y_coordinate_selection);
         } catch (InvalidTileSelectionException e) {
             System.out.println(e.getMessage());
-            return false;
+            return null;
         }
-        return true;
+
+        return board;
     }
 
     private void pieceOnSelectedTileHasPlayersColorAndTileIsNotEmpty(boolean colorIsWhite, ChessBoard board, byte x_coordinate_selection, byte y_coordinate_selection) {
