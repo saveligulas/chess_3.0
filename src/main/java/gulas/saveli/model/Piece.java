@@ -14,11 +14,11 @@ public class Piece implements PieceInterface {
     private byte row;
 
     public void setColorToBlack() {
-        this.color = 'b';
+        this.color = 'B';
     }
 
     public void setColorToWhite() {
-        this.color = 'w';
+        this.color = 'W';
     }
 
     protected void movePiece(byte x_coordinate, byte y_coordinate) {
