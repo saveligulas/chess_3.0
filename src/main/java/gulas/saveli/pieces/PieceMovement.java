@@ -14,10 +14,12 @@ public class PieceMovement implements PieceInterface {
 
         try {
             pieceOnSelectedTileHasPlayersColorAndTileIsNotEmpty(playerIsWhite, board, x_coordinate_selection, y_coordinate_selection);
+            Piece_Type piece_type = getPieceTypeOfSelectedTile(board, x_coordinate_selection, y_coordinate_selection);
         } catch (InvalidTileSelectionException e) {
             System.out.println(e.getMessage());
             return false;
         }
+        return true;
     }
 
     private void pieceOnSelectedTileHasPlayersColorAndTileIsNotEmpty(boolean colorIsWhite, ChessBoard board, byte x_coordinate_selection, byte y_coordinate_selection) {
@@ -29,7 +31,7 @@ public class PieceMovement implements PieceInterface {
     }
 
     private Piece_Type getPieceTypeOfSelectedTile(ChessBoard board, byte x_coordinate_selection, byte y_coordinate_selection) {
-
+        return Piece_Type.KING;
     }
 
     //TODO: implement ability to check if piece on board of specific type can move to given x and y coordinates - and add ability to check if the king is in check
