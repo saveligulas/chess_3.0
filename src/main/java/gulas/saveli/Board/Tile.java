@@ -8,7 +8,7 @@ public class Tile {
     private byte x_coordinate;
     private byte y_coordinate;
 
-    private Piece pieceOnTile;
+    private Piece pieceOnTile = null;
 
     public static Tile[] getStandard64Tiles() {
         Tile[] tiles = new Tile[64];
@@ -18,7 +18,9 @@ public class Tile {
                 Tile tile = new Tile();
                 tile.setY_coordinate(rows);
                 tile.setX_coordinate(columns);
+                tiles[index] = tile;
             }
         }
+        return tiles;
     }
 }
