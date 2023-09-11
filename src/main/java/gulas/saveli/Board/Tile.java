@@ -23,4 +23,8 @@ public class Tile {
         }
         return tiles;
     }
+
+    public static byte getIndex(byte x_coordinate, byte y_coordinate) {
+        return (byte) ((byte) (7 - y_coordinate) * 8 + x_coordinate);
+    }
 }
