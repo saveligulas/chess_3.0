@@ -9,17 +9,9 @@ import lombok.Setter;
 public class Piece implements PieceInterface {
     private Piece_Type type;
     @Setter(AccessLevel.NONE)
-    private char color;
+    private boolean colorIsWhite;
     private byte column;
     private byte row;
-
-    public void setColorToBlack() {
-        this.color = 'B';
-    }
-
-    public void setColorToWhite() {
-        this.color = 'W';
-    }
 
     protected void movePiece(byte x_coordinate, byte y_coordinate) {
         if (x_coordinate > 0 && x_coordinate <= MAX_COORDINATE_VALUE && y_coordinate > 0 && y_coordinate <= MAX_COORDINATE_VALUE) {
