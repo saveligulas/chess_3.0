@@ -20,11 +20,11 @@ public class PieceMovement implements PieceInterface {
         }
     }
 
-    private boolean pieceOnSelectedTileHasPlayersColorAndTileIsNotEmpty(boolean colorIsWhite, ChessBoard board, byte x_coordinate_selection, byte y_coordinate_selection) {
+    private void pieceOnSelectedTileHasPlayersColorAndTileIsNotEmpty(boolean colorIsWhite, ChessBoard board, byte x_coordinate_selection, byte y_coordinate_selection) {
         Tile[] boardTiles = board.getTiles();
         Piece piece = new Piece();
-        if(piece.isColorIsWhite() == colorIsWhite) {
-
+        if(piece.isColorIsWhite() != colorIsWhite) {
+            throw new InvalidTileSelectionException();
         }
     }
 
