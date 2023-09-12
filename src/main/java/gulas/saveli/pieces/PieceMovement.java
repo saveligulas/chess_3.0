@@ -34,6 +34,9 @@ public class PieceMovement implements PieceInterface {
     private Piece_Type getPieceTypeOfSelectedTile(ChessBoard board, byte x_coordinate_selection, byte y_coordinate_selection) {
         Tile[] boardTiles = board.getTiles();
         Tile selectedTile = boardTiles[Tile.getIndex(x_coordinate_selection, y_coordinate_selection)];
+        if(selectedTile.getPieceOnTile() == null) {
+            throw new InvalidTileSelectionException();
+        }
         return selectedTile.getPieceOnTile().getType();
     }
 
