@@ -16,7 +16,7 @@ public class PieceMovement implements PieceInterface {
         try {
             pieceOnSelectedTileHasPlayersColorAndTileIsNotEmpty(playerIsWhite, board, x_coordinate_selection, y_coordinate_selection);
             Piece_Type piece_type = getPieceTypeOfSelectedTile(board, x_coordinate_selection, y_coordinate_selection);
-            checkIfTargetedTileIsAccessible();
+            checkIfTargetedTileIsAccessible(piece_type);
         } catch (InvalidTileSelectionException e) { //TODO ADD custom return Statements to give info to player
             System.out.println(e.getMessage());
             return null;
@@ -31,7 +31,7 @@ public class PieceMovement implements PieceInterface {
     private void pieceOnSelectedTileHasPlayersColorAndTileIsNotEmpty(boolean colorIsWhite, ChessBoard board, byte x_coordinate_selection, byte y_coordinate_selection) {
         Tile[] boardTiles = board.getTiles();
         Tile selectedTile = boardTiles[Tile.getIndex(x_coordinate_selection, y_coordinate_selection)];
-        if(selectedTile.getPieceOnTile().isColorIsWhite() != colorIsWhite) {
+        if (selectedTile.getPieceOnTile().isColorIsWhite() != colorIsWhite) {
             throw new InvalidTileSelectionException();
         }
     }
@@ -39,14 +39,36 @@ public class PieceMovement implements PieceInterface {
     private Piece_Type getPieceTypeOfSelectedTile(ChessBoard board, byte x_coordinate_selection, byte y_coordinate_selection) {
         Tile[] boardTiles = board.getTiles();
         Tile selectedTile = boardTiles[Tile.getIndex(x_coordinate_selection, y_coordinate_selection)];
-        if(selectedTile.getPieceOnTile() == null) {
+        if (selectedTile.getPieceOnTile() == null) {
             throw new InvalidTileSelectionException();
         }
         return selectedTile.getPieceOnTile().getType();
     }
 
-    private void checkIfTargetedTileIsAccessible() {
+    private void checkIfTargetedTileIsAccessible(Piece_Type piece_type) {
+        if (piece_type == Piece_Type.PAWN) {
 
+        }
+
+        if (piece_type == Piece_Type.KING) {
+
+        }
+
+        if (piece_type == Piece_Type.KNIGHT) {
+
+        }
+
+        if (piece_type == Piece_Type.BISHOP) {
+
+        }
+
+        if (piece_type == Piece_Type.ROOK) {
+
+        }
+
+        if (piece_type == Piece_Type.QUEEN) {
+
+        }
     }
 
     @Override
