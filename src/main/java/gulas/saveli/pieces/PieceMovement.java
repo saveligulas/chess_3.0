@@ -2,6 +2,7 @@ package gulas.saveli.pieces;
 
 import gulas.saveli.Board.ChessBoard;
 import gulas.saveli.Board.Tile;
+import gulas.saveli.error.InvalidTargetedTileException;
 import gulas.saveli.error.InvalidTileSelectionException;
 import gulas.saveli.model.Piece;
 import gulas.saveli.model.PieceInterface;
@@ -16,7 +17,10 @@ public class PieceMovement implements PieceInterface {
             pieceOnSelectedTileHasPlayersColorAndTileIsNotEmpty(playerIsWhite, board, x_coordinate_selection, y_coordinate_selection);
             Piece_Type piece_type = getPieceTypeOfSelectedTile(board, x_coordinate_selection, y_coordinate_selection);
             checkIfTargetedTileIsAccessible();
-        } catch (InvalidTileSelectionException e) {
+        } catch (InvalidTileSelectionException e) { //TODO ADD custom return Statements to give info to player
+            System.out.println(e.getMessage());
+            return null;
+        } catch (InvalidTargetedTileException e) {
             System.out.println(e.getMessage());
             return null;
         }
