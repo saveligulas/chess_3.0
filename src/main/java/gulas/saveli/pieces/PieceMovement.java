@@ -15,6 +15,7 @@ public class PieceMovement implements PieceInterface {
         try {
             pieceOnSelectedTileHasPlayersColorAndTileIsNotEmpty(playerIsWhite, board, x_coordinate_selection, y_coordinate_selection);
             Piece_Type piece_type = getPieceTypeOfSelectedTile(board, x_coordinate_selection, y_coordinate_selection);
+            checkIfTargetedTileIsAccessible();
         } catch (InvalidTileSelectionException e) {
             System.out.println(e.getMessage());
             return null;
@@ -38,6 +39,10 @@ public class PieceMovement implements PieceInterface {
             throw new InvalidTileSelectionException();
         }
         return selectedTile.getPieceOnTile().getType();
+    }
+
+    private void checkIfTargetedTileIsAccessible() {
+
     }
 
     @Override
