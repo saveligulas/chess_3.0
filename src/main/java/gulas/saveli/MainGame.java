@@ -1,23 +1,22 @@
 package gulas.saveli;
 
 import de.gurkenlabs.litiengine.Game;
-import gulas.saveli.Board.Tile;
-import gulas.saveli.pieces.Pawn;
+import gulas.saveli.Board.LogicTile;
 
 public class MainGame {
     public static void main(String[] args) {
         Game.init(args);
         Game.start();
-        Tile[] tiles = Tile.getStandard64Tiles();
-        for(Tile tile : tiles) {
-            if(tile == null) {
+        LogicTile[] logicTiles = LogicTile.getStandard64Tiles();
+        for(LogicTile logicTile : logicTiles) {
+            if(logicTile == null) {
                 System.out.println("ERROR: Tile is null");
             } else {
-                System.out.println(tile.toString() + " | " + tile.getX_coordinate() + " | " + tile.getY_coordinate());
-                byte y = tile.getY_coordinate();
-                byte x = tile.getX_coordinate();
-                byte index = Tile.getIndex(x, y);
-                System.out.println(tiles[index].toString() + " | " + tiles[index].getX_coordinate() + " | " + tiles[index].getY_coordinate());
+                System.out.println(logicTile.toString() + " | " + logicTile.getX_coordinate() + " | " + logicTile.getY_coordinate());
+                byte y = logicTile.getY_coordinate();
+                byte x = logicTile.getX_coordinate();
+                byte index = LogicTile.getIndex(x, y);
+                System.out.println(logicTiles[index].toString() + " | " + logicTiles[index].getX_coordinate() + " | " + logicTiles[index].getY_coordinate());
                 System.out.println();
             }
         }
