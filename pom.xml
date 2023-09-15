@@ -21,6 +21,11 @@
             <version>1.18.28</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>de.gurkenlabs</groupId>
+            <artifactId>litiengine</artifactId>
+            <version>0.5.2</version>
+        </dependency>
     </dependencies>
 
 </project>
