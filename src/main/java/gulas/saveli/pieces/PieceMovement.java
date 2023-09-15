@@ -1,10 +1,9 @@
 package gulas.saveli.pieces;
 
 import gulas.saveli.Board.ChessBoard;
-import gulas.saveli.Board.Tile;
+import gulas.saveli.Board.LogicTile;
 import gulas.saveli.error.InvalidTargetedTileException;
 import gulas.saveli.error.InvalidTileSelectionException;
-import gulas.saveli.model.Piece;
 import gulas.saveli.model.PieceInterface;
 import gulas.saveli.model.Piece_Type;
 
@@ -16,7 +15,7 @@ public class PieceMovement implements PieceInterface {
         try {
             pieceOnSelectedTileHasPlayersColorAndTileIsNotEmpty(playerIsWhite, board, x_coordinate_selection, y_coordinate_selection);
             Piece_Type piece_type = getPieceTypeOfSelectedTile(board, x_coordinate_selection, y_coordinate_selection);
-            checkIfTargetedTileIsAccessible(piece_type);
+            checkIfTargetedTileIsAccessible(piece_type, board, LogicTile.getIndex(x_coordinate_selection, y_coordinate_selection), LogicTile.getIndex(x_coordinate_target, y_coordinate_target));
         } catch (InvalidTileSelectionException e) { //TODO ADD custom return Statements to give info to player
             System.out.println(e.getMessage());
             return null;
@@ -29,23 +28,23 @@ public class PieceMovement implements PieceInterface {
     }
 
     private void pieceOnSelectedTileHasPlayersColorAndTileIsNotEmpty(boolean colorIsWhite, ChessBoard board, byte x_coordinate_selection, byte y_coordinate_selection) {
-        Tile[] boardTiles = board.getTiles();
-        Tile selectedTile = boardTiles[Tile.getIndex(x_coordinate_selection, y_coordinate_selection)];
-        if (selectedTile.getPieceOnTile().isColorIsWhite() != colorIsWhite) {
+        LogicTile[] boardLogicTiles = board.getLogicTiles();
+        LogicTile selectedLogicTile = boardLogicTiles[LogicTile.getIndex(x_coordinate_selection, y_coordinate_selection)];
+        if (selectedLogicTile.getPieceOnTile().isColorIsWhite() != colorIsWhite) {
             throw new InvalidTileSelectionException();
         }
     }
 
     private Piece_Type getPieceTypeOfSelectedTile(ChessBoard board, byte x_coordinate_selection, byte y_coordinate_selection) {
-        Tile[] boardTiles = board.getTiles();
-        Tile selectedTile = boardTiles[Tile.getIndex(x_coordinate_selection, y_coordinate_selection)];
-        if (selectedTile.getPieceOnTile() == null) {
+        LogicTile[] boardLogicTiles = board.getLogicTiles();
+        LogicTile selectedLogicTile = boardLogicTiles[LogicTile.getIndex(x_coordinate_selection, y_coordinate_selection)];
+        if (selectedLogicTile.getPieceOnTile() == null) {
             throw new InvalidTileSelectionException();
         }
-        return selectedTile.getPieceOnTile().getType();
+        return selectedLogicTile.getPieceOnTile().getType();
     }
 
-    private void checkIfTargetedTileIsAccessible(Piece_Type piece_type) {
+    private void checkIfTargetedTileIsAccessible(Piece_Type piece_type, ChessBoard board, byte selectionIndex, byte targetIndex) {
         if (piece_type == Piece_Type.PAWN) {
 
         }
@@ -69,6 +68,12 @@ public class PieceMovement implements PieceInterface {
         if (piece_type == Piece_Type.QUEEN) {
 
         }
+    }
+
+    private void checkIfPawnCanMove(ChessBoard board, byte selectionIndex, byte targetIndex) {
+        LogicTile[] logicTiles = board.getLogicTiles();
+        LogicTile selectedLogicTile = logicTiles[selectionIndex];
+        LogicTile targetedLogicTile = logicTiles[targetIndex];
     }
 
     @Override
