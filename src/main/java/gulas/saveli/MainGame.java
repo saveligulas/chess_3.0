@@ -1,13 +1,13 @@
 package gulas.saveli;
 
+import de.gurkenlabs.litiengine.Game;
 import gulas.saveli.Board.Tile;
 import gulas.saveli.pieces.Pawn;
 
 public class MainGame {
     public static void main(String[] args) {
-        Pawn pTest = new Pawn(false, (byte) 0);
-        System.out.println(pTest.getPawnNameFromStartingPosition());
-        System.out.println(pTest.toString());
+        Game.init(args);
+        Game.start();
         Tile[] tiles = Tile.getStandard64Tiles();
         for(Tile tile : tiles) {
             if(tile == null) {
@@ -17,11 +17,8 @@ public class MainGame {
                 byte y = tile.getY_coordinate();
                 byte x = tile.getX_coordinate();
                 byte index = Tile.getIndex(x, y);
-                if(tiles[index] == tile) {
-                    System.out.println("Successful");
-                } else {
-                    System.out.println("Unsuccessful");
-                }
+                System.out.println(tiles[index].toString() + " | " + tiles[index].getX_coordinate() + " | " + tiles[index].getY_coordinate());
+                System.out.println();
             }
         }
     }
