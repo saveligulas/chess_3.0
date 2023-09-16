@@ -3,6 +3,9 @@ package gulas.saveli;
 import de.gurkenlabs.litiengine.Game;
 import gulas.saveli.Board.LogicTile;
 
+import java.awt.*;
+import java.awt.geom.Rectangle2D;
+
 public class MainGame {
     public static void main(String[] args) {
         Game.init(args);
